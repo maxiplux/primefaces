@@ -5,9 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity(name = "Car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +20,11 @@ public class Car {
 
     private String color;
 
-    public Car() {}
+    public Car() {
+    }
 
-    public Car(Long id, String brand, int year, String color) {
-        this.id = id;
+    public Car( String brand, int year, String color) {
+
         this.brand = brand;
         this.year = year;
         this.color = color;
